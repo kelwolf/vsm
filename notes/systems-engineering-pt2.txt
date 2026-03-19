@@ -1,0 +1,71 @@
+Systems Engineering as an Optimization Problem | Systems Engineering, Part 2
+Source: MATLAB (MathWorks)
+Translated from Korean
+
+---
+
+As we saw in the previous video, the role of systems engineering is to find and maintain a balance between the potentially conflicting requirements of project stakeholders, project managers, and project engineers.
+
+If you ignore too many of these requirements, the project will fail. You'll run out of money, the design will be wrong, or it simply won't work at all.
+
+Therefore, throughout the lifecycle of a project, you must do your best to find the right balance between these requirements. This is why we can think of systems engineering as a design optimization problem.
+
+In this video, we'll look at how optimization is achieved through good decision-making over the course of a project, and we'll examine trade studies and engineering experience that help increase the probability of actually making good decisions. We'll also explore how models play a critical role throughout the entire process. I hope you stick around for it. I'm Brian and welcome to a MATLAB Tech Talk.
+
+Before we begin, we need to address the concept of optimization. When you hear optimization, you might think it means finding the best solution -- that is, finding the optimal design that perfectly balances the requirements of all three groups. Let's call these combined requirements the project requirements. However, this is neither the goal of systems engineering nor of engineering in general. We're simply trying to find an adequate solution. It may be an effective design, but there could be a better one. We try to optimize the design, but it's an effective solution, not necessarily the best one.
+
+A graphic can help us understand this better. During an engineering project, there are many decisions to be made. Early in the project, you may need to choose how to analyze stakeholder needs into core requirements. In the middle of the program, you might make lower-level decisions -- for example, which resistor to use. Finally, you may need to make system-level decisions, such as how to verify that you actually built what the requirements specified.
+
+All of these choices form a tree -- a decision tree where each node has multiple branches representing the different paths that could be taken. For example, if a stakeholder requests a new air taxi, at an early stage you need to decide whether a fixed-wing aircraft, a helicopter, or a quadcopter is the best solution given the transportation goals, schedule, budget, and so on.
+
+If you followed every path through the tree for every decision, at the end you would theoretically see every possible solution. Most solutions would be useless because they don't meet the design intent, are physically impossible, cost too much, or simply don't work. There might be a theoretically perfect best design that perfectly satisfies performance, cost, simplicity, and everything else, but there are likely many more solutions that can meet the project requirements.
+
+For example, you could arrive at a viable air taxi from each of these concepts. Or slight variations of each of these concepts would also work. With these multiple design possibilities, we ultimately want to make the right decisions by choosing the best path. But to guarantee that we always choose the best path, we would need perfect knowledge of the entire design space. You're probably more likely to die of heat death in the universe than to have perfect knowledge. Imagine designing every possible and impossible alternative for an air taxi before making your first decision. That's impossible.
+
+And that's why we don't try to find the best solution. It's impossible. Instead, this is how we approach the problem. We'll find a path that leads to one or more viable options. We'll also try to avoid taking risks that lead us to dead ends and having to backtrack.
+
+So how do we approach this problem? The first step is to explore our options. For each decision, we need to list the reasonable choices we can consider. We can look at how others have solved this problem, what's commercially available, or what cutting-edge research is being done. Leveraging the experience of domain experts can help identify options.
+
+It's important to know that we're not randomly selecting from these three approaches -- we know that each one is worth examining. Experience can also help narrow the infinite range of options down to those that the team can actually design and build. If the team only has experience designing fixed-wing aircraft, the fixed-wing option will likely be emphasized more.
+
+Along with what I've said, I also want to point out that we need to be careful. We can't ignore viable options just because we haven't tried them before. Otherwise, engineering bias creeps into the design and you end up building the same type of system over and over again.
+
+The systems engineering workflow addresses this by ensuring that you take time to actually consider the problem you're trying to solve before considering specific implementations. Starting with the stakeholder requirements -- the purpose of the design -- you spend significant time understanding the design behavior and functions, and then investigate form and implementation.
+
+Now we need a set of options to compare. Let's look at what we do with these options. First, we need to establish criteria or measures of performance so that we can compare the options. For example, we can compare the carrying capacity, range, speed, and estimated cost of a fixed-wing aircraft with those measurements for a helicopter and a quadcopter.
+
+A larger and faster vehicle may cost more to build and operate, but it can transport more people in less time. So there are trade-offs to consider here. That's why we call this decision-making process a trade study.
+
+A trade study, as the name suggests, is the process of comparing two or more options while maintaining a balance between conflicting program requirements, and then selecting the solution deemed best. It's an optimization technique that helps navigate the decision tree.
+
+Trade studies are nothing special. It's how people generally make decisions. You have a few possible options, think about the pros and cons, and then choose one. If you have to make a life-changing decision, you might spend more time contemplating the consequences of your choices. On the other hand, if it's not a critical decision, you might make a somewhat more casual choice. Engineering decisions work the same way. The amount of information needed depends on the consequences of the decision.
+
+So how do we get the information? Let's assume that to make this decision, we need to know capacity, range, speed, and cost. In reality, you'd need much more quantitative data as well as qualitative data like the team's experience and skill level, but for simplicity let's assume we only need these four things.
+
+The problem here is: how do you know at this early stage what the final range will be, or how much it will cost? At this point, there is too much uncertainty because there are many paths that could be followed from each choice.
+
+There are two extreme approaches. The first is to explore every path to its end and gather perfect information. I've already said this isn't practical. The second is to choose without any additional information -- basically ignoring all branches beyond this node and following intuition or engineering experience. This approach can work successfully, especially if you have experts who can identify the pros and cons of choices based on experience with similar decisions in the past.
+
+But this approach isn't effective in every situation. Because most of the time we're trying something new, and we can't rely solely on priorities or experience for quick decision-making -- especially not for every decision. So if we shouldn't rely solely on past information and we can't gather perfect information, we need to be able to approximate each option.
+
+This is where modeling comes in. Roughly speaking, a model is something that is close to or represents reality. A model can be a physical model, a mathematical model, or an abstract model such as a behavior diagram or an architecture diagram. Because all models represent reality, they can help us make informed decisions.
+
+When done correctly, modeling can be used to simplify the problem by focusing on specific aspects of the design. For example, a physical model of an airplane can help analyze and determine the aerodynamics of the actual airplane. By modeling only the parts of the design that affect aerodynamics, you can get a simple approximation of the airflow around the airplane.
+
+Of course, you don't necessarily need a physical model to get an approximation. You can model the aerodynamics mathematically and analyze them computationally through simulation. But in both cases, these are examples of approximating the system through a model, and you get estimates that can be used to make decisions.
+
+Once you've established an aerodynamic strategy -- that is, once you've followed a particular branch -- you start the next level of trade studies again. You create a list of possible options, develop a set of selection criteria, refine the models to approximate each option, and make another decision.
+
+This is basically the concept of model-based systems engineering. Using models or approximations to help make system-level decisions. As the complexity and importance of the problem increases, the richness of the models also increases.
+
+Some decisions can be made using very simple mathematical equations, like the relationship between aircraft size and operating cost. These types of models can be analyzed or reasoned about manually. For other problems, more sophisticated equations may be needed to capture the complex dynamics of the system. Understanding and analyzing these models may require simulation or some kind of computational engine.
+
+Of course, there are also problems that require different types of models, such as state machines and functional architecture diagrams. Analysis of these model types can also be done manually or through simulation. It depends on the richness of the problem.
+
+But models don't just provide a framework for analysis and simulation. More importantly, they serve as the foundation for communication and information exchange between stakeholders, project managers, and engineering domain experts. Using models, all groups can understand the current design landscape and ensure that their respective requirements are being met.
+
+Additionally, if you set up models from the beginning, you can evolve them into things like high-fidelity dynamics simulations that can be used for production code, testing and verification, and what-if scenario investigation.
+
+I hope this video has helped you understand that complex engineering projects require an enormous amount of decision-making. To make the right decisions, we can leverage trade studies. Through these studies, we compare multiple options to determine the path most likely to meet the requirements of all parties involved. These decisions can be informed by information obtained from models of the actual system. These models can take various forms and levels of complexity. MATLAB has tools and workflows to help develop, manage, and analyze these models.
+
+We'll look at that in the next video. If you don't want to miss that or any future tech talk videos, please subscribe to this channel. I also cover more control theory topics on my own channel, so please check that out. Thank you for watching. I'll see you in the next video.
